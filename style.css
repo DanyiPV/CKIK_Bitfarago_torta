@@ -114,3 +114,14 @@ body{
     color: lime !important;
     letter-spacing: 0.2em !important;
 }
+#jatekleiras{
+    padding-left: 10px;
+}
+.offcanvas{
+    background-color:  rgba(20, 20, 20, 0.8);
+    color: white;
+    font-size: 1.2vw;
+}
+.btn-close{
+    background-color: white;
+}
