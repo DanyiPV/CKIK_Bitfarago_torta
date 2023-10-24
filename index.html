@@ -24,29 +24,25 @@
     </div>
     </div>
     <div id="DifficultySet" class=" DifficultySet">
-        <input type="button" value="Nehéz" class="DiffButtons" onclick="DiffChange(this)">
-        <input type="button" value="Közép" class="DiffButtons" onclick="DiffChange(this)">
-        <input type="button" value="Könnyű" class="DiffButtons AktivDiff" onclick="DiffChange(this)">
+        <input type="button" value="Nehéz" class="DiffButtons" onclick="DiffChange(this,20)">
+        <input type="button" value="Közép" class="DiffButtons" onclick="DiffChange(this,10)">
+        <input type="button" value="Könnyű" class="DiffButtons AktivDiff" onclick="DiffChange(this,5)">
         <input type="button" value="Indítás" class="DiffButtons" onclick="Inditas()">
     </div>
-
+    <canvas style="opacity: 0;" id="CanvasGame" width="600" height="600"></canvas>
+    <canvas style="opacity: 0;" id="myCanvas" width="600" height="600"></canvas>
     <div id="ValasztBox">
         <div class="DiszIMG">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
-            <img src="ph/test.png" alt="">
+            <img onclick="Valaszt(0)" src="ph/0.png" alt="">
+            <img onclick="Valaszt(1)" src="ph/1.png" alt="">
+            <img onclick="Valaszt(2)" src="ph/2.png" alt="">
+            <img onclick="Valaszt(3)" src="ph/3.png" alt="">
+            <img onclick="Valaszt(4)" src="ph/4.png" alt="">
+            <img onclick="Valaszt(5)" src="ph/5.png" alt="">
+            <img onclick="Valaszt(6)" src="ph/6.png" alt="">
+            <img onclick="Valaszt(7)" src="ph/7.png" alt="">
+            <img onclick="Valaszt(8)" src="ph/8.png" alt="">
+            <img onclick="Valaszt(9)" src="ph/9.png" alt="">
         </div>
     </div>
 </body>

@@ -1,3 +1,27 @@
+
+#myCanvas.circle,#CanvasGame.circle{
+    border-radius: 50%;
+}
+#myCanvas,#CanvasGame{
+    position: absolute;  
+    left: calc(50% - 300px);
+    top: 5%;
+    transition: width 2s, height 2s;
+    background-color: white;
+}
+#myCanvas.generated{
+    top: -15vh;
+    left: calc(100% - 450px - 1vh);
+    transform: scale(0.5);
+    transition: top 3s, left 3s;
+    transition: 1s ease-in;
+}
+#CanvasGame{  
+    position: absolute;  
+    top: 5%;
+    left: calc(50% - 300px);
+}
+
 body{
     background-color: gray;
 }
@@ -62,7 +86,7 @@ body{
 .DifficultySet{
     border: 2px solid gray;
     width: 20vw;    
-    height: auto;
+    height: 50vh;
     position: fixed;
     left: 0;
     display: flex;
