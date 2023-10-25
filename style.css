@@ -1,13 +1,18 @@
 
-#myCanvas.circle,#CanvasGame.circle{
+#myCanvas.circle,#CanvasGame.circle,#CanvasGame2.circle{
     border-radius: 50%;
 }
-#myCanvas,#CanvasGame{
+#myCanvas,#CanvasGame,#CanvasGame2{
     position: absolute;  
     left: calc(50% - 300px);
     top: 5%;
     transition: width 2s, height 2s;
+}
+#myCanvas,#CanvasGame2{
     background-color: white;
+}
+#CanvasGame2{
+    z-index: -5;
 }
 #myCanvas.generated{
     top: -15vh;
@@ -15,11 +20,6 @@
     transform: scale(0.5);
     transition: top 3s, left 3s;
     transition: 1s ease-in;
-}
-#CanvasGame{  
-    position: absolute;  
-    top: 5%;
-    left: calc(50% - 300px);
 }
 
 body{
