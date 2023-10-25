@@ -3,6 +3,7 @@ var canvasg = document.getElementById("CanvasGame");var ctxg = canvasg.getContex
 var canvasg2 = document.getElementById("CanvasGame2");var ctxg2 = canvasg2.getContext("2d");
 var Diff = "Könnyű"
 var mode = 5;
+var point = 0;
 function DiffChange(input,v){
     if(input.classList.contains("AktivDiff") == false){
         document.getElementsByClassName('AktivDiff')[0].classList.remove("AktivDiff");
@@ -63,10 +64,11 @@ function load(){
         }
     }); 
 }
-var kulonbseg = 0;
+var pont;
+var allwrongpx = 0;
 function Ertekeles(){
-    for (let index = 0; index < positions.length; index++) {        
-        var asd = [];
+/*     for (let index = 0; index < positions.length; index++) {        
+        
         var tmp = placed.filter((x) => x[2] == positions[index][2]);
         var tmp2 = positions.filter((x) => x[2] == positions[index][2]);
         for (let i = 0; i < tmp.length; i++) {
@@ -74,10 +76,30 @@ function Ertekeles(){
                 asd.push([i,i2,Math.sqrt((Math.pow(tmp[i][0]-tmp2[i2][0],2)+Math.pow(tmp[i][1]-tmp2[i2][1],2)))]);
             }
         }
+        var legkis = asd[0][2];
+        for (let i = 0; i < asd.length; i++) {
+            if (asd[i][2]<legkis) legkis = asd[i][2]
+        }
+        allwrongpx+=legkis;
 
-        asd.map
-        console.log(asd); 
-    }
+        console.log(legkis)
+        console.log(asd);  */
+
+        for (let i = 0; i < positions.length; i++) {
+            var asd = [];
+            for (let i2 = 0; i2 < placed.length; i2++) {
+                asd.push([i,i2,Math.sqrt((Math.pow(positions[i][0]-placed[i2][0],2)+Math.pow(positions[i][1]-placed[i2][1],2)))]);
+            }
+            var legkis = asd[0];
+            for (let i = 0; i < asd.length; i++) {
+                if (asd[i][2]<legkis[2]) legkis = asd[i]
+            }
+            allwrongpx+=legkis[2];
+            console.log(positions[i],legkis);
+        }
+        pont = Math.floor(((3600-allwrongpx) / 3600) * 1000);
+        var div = document.getElementById("pontdiv");
+        div.innerHTML = '<p class="pont">'+ pont +'</p>';
 }
 function negyzet(nehezseg){
     ctx.beginPath();ctx.rect(0, 0, 600, 600);ctx.stroke();
@@ -85,7 +107,7 @@ function negyzet(nehezseg){
         var path = "ph/"+ Math.floor(Math.random() * 10)+".png";const img = new Image();img.src = path;
         ctx.beginPath();ctx.drawImage(img, x, y,80,80);ctx.fill();positions.push([x,y,path]);
     }
-    var c = 0;var draw = setInterval(function(){drawPoint(Math.floor(Math.random() * 540),Math.floor(Math.random() * 540));c++;if (c == nehezseg) {canvas.classList.add("generated");load();clearInterval(draw);}},300)
+    var c = 0;var draw = setInterval(function(){drawPoint(Math.floor(Math.random() * 540),Math.floor(Math.random() * 540));c++;if (c == nehezseg) {canvas.classList.add("generated");load();clearInterval(draw);}},1000)
 }
 function kor(nehezseg){
     ctx.beginPath();var center_x = 300;var center_y = 300;var radius = 300;ctx.arc(center_x, center_y, radius, 0, 2 * Math.PI);ctx.stroke();
@@ -94,7 +116,7 @@ function kor(nehezseg){
         var path = "ph/"+ Math.floor(Math.random() * 10)+".png";const img = new Image();img.src = path;
         ctx.beginPath();ctx.drawImage(img, x, y,80,80);ctx.fill();positions.push([x,y,path]);
     }
-    var c = 0;var draw = setInterval(function(){drawPoint(Math.floor(Math.random() * 360),Math.floor(Math.random() * 10)/10);c++;if (c == nehezseg) {canvas.classList.add("generated");load();clearInterval(draw);}},300)
+    var c = 0;var draw = setInterval(function(){drawPoint(Math.floor(Math.random() * 360),Math.floor(Math.random() * 10)/10);c++;if (c == nehezseg) {canvas.classList.add("generated");load();clearInterval(draw);}},1000)
 }
 var inhand = -1;
 function Valaszt(png){

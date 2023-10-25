@@ -149,3 +149,25 @@ body{
 .btn-close{
     background-color: white;
 }
+.pont{
+    width: 15vw;
+    margin: .3vw auto;
+    height: 4vw;
+    border: 2px solid rgb(130, 130, 130);
+    background-color: rgba(20, 20, 20, 0.8);
+    color: rgb(130, 130, 130);
+    transition: .4s;
+    cursor: pointer;
+    border-radius: .4vw;
+    margin-bottom: 1.2vw;
+    font-size: 1.2vw;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2.4vw;
+    text-align: center;
+    padding-top: 1vw;
+}
+#pontdiv{
+    display: inline-block;
+
+}
