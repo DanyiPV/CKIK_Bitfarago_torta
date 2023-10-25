@@ -15,7 +15,6 @@ function DiffChange(input,v){
 
 function Inditas(){
     setTimeout(BezarDiff,400);
-    console.log(Diff,mode);
     canvas.style.opacity = 1;
     canvasg.style.opacity = 1;
     canvasg2.style.opacity = 1;
@@ -55,6 +54,14 @@ function load(){
             let x = event.clientX -rect.left;
             let y = event.clientY -rect.top;
             document.onmousemove = null;
+            let tomb = document.getElementsByClassName('IMGReicive');
+            let i = 0;
+            while(i < tomb.length && tomb[i].dataset.ph != inhand[3]){
+                i++;
+            }
+            if(i < tomb.length){
+                document.getElementById('DiszIMG').removeChild(tomb[i]);
+            }
             placed.push([x-1,y-1,inhand]);
             document.getElementById("tmp").id = "placed";
             inhand = -1;
@@ -62,7 +69,11 @@ function load(){
                 Ertekeles();
             }
         }
-    }); 
+    });
+    document.getElementById('DiszIMG').innerHTML = "";
+    for (let i = 0; i < positions.length; i++) {
+        let img = document.createElement('img');img.setAttribute('onclick',"Valaszt("+positions[i][2][3]+")");img.src = positions[i][2];img.dataset.ph = positions[i][2][3];img.classList.add('IMGReicive');document.getElementById('DiszIMG').appendChild(img);
+    }
 }
 var pont;
 var allwrongpx = 0;
@@ -120,7 +131,6 @@ function kor(nehezseg){
 }
 var inhand = -1;
 function Valaszt(png){
-    console.log(png);
     if(document.getElementById("tmp") != undefined){document.getElementById("tmp").remove();}
     var tmp = document.createElement("img");
     tmp.src ="ph/"+ png +".png";
